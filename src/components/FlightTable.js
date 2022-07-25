@@ -8,18 +8,18 @@ function readableDate(isoDate) {
     let m = dateFormat.getMinutes();
 
     let foo = String(h) + ':' + (dateFormat.getMinutes()<10?'0':'') + + String(m);
-    
+
     return foo
 }
 
-const FlightsTable = ({flights}) => {
+const FlightsTable = ({flights, direction}) => {
     return (
         <table>
             <thead>
                 <tr>
                     <th>Airport Name</th>
                     <th>Flight Number</th>
-                    <th>Gate</th>
+                    {(direction==='Departures') ? <th>Gate</th> : null}
                     <th>Scheduled Time</th>
                     <th>Status</th>
                     <th>Terminal</th>
@@ -31,7 +31,7 @@ const FlightsTable = ({flights}) => {
                     <tr key={i}>
                         <td>{flightInfo.apname}</td>
                         <td>{flightInfo.fnr}</td>
-                        <td>{flightInfo.gate}</td>
+                        {(direction==='Departures') ? <td>{flightInfo.gate}</td> : null}
                         <td>{readableDate(flightInfo.sched)}</td>
                         <td>{flightInfo.status}</td>
                         <td>{flightInfo.terminal}</td>

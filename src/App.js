@@ -20,20 +20,34 @@ import FlightsTable from './components/FlightTable';
 function App() {
 
   const [airportData, setAirportData] = useState([]);
+  const [arrivals, setArrivals] = useState([]);
+  const [departures, setDepartures] = useState([]);
+
+  const [direction, setDirection] = useState('Arrivals')
 
   useEffect(() => {
+    if(arrivals.length === 0 || departures.length === 0) {
+      data.map((flight) => {
+        if(flight.gate) setDepartures(current => [...current, flight]);
+        else setArrivals(current => [...current, flight]);
+      })
+    }
     setAirportData(data);
   }, []);
+
+  function changeDirection() {
+    direction === 'Arrivals' ? setDirection('Departures') : setDirection('Arrivals')
+  }
 
   return (
     <React.Fragment>
         <div>
           <div className='wrapper'>
-            <h1 className='header'>Arrivals</h1>
-            <button>Departures</button>
+            <h1 className='header'>{direction}</h1>
+            <button onClick={changeDirection}>{direction === 'Arrivals' ? 'Departures' : 'Arrivals'}</button>
           </div>
           <div className='flightsTable'>
-            <FlightsTable flights={airportData} />
+            <FlightsTable flights={arrivals} direction={direction} />
           </div>
         </div>
     </React.Fragment>
