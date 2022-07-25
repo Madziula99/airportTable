@@ -55,6 +55,7 @@ const FlightsTable = ({flights, direction}) => {
                     )
                 })}
             </tbody>
+            {(listChange.length === 0) ? null : null}
         </table>
       )
 }

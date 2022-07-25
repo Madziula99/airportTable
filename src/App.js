@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState, UseEffect, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import data from './data/data.json';
 
@@ -29,9 +29,10 @@ function App() {
       data.map((flight) => {
         if(flight.gate) setDepartures(current => [...current, flight]);
         else setArrivals(current => [...current, flight]);
+        return null;
       })
     }
-  }, []);
+  }, [arrivals.length, departures.length]);
 
   function changeDirection() {
     direction === 'Arrivals' ? setDirection('Departures') : setDirection('Arrivals')
