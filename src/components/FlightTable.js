@@ -32,13 +32,13 @@ const FlightsTable = ({flights, direction}) => {
     return (
         <table>
             <thead>
-                <tr>
-                    <th onClick={() => sortFlights(flights, 'fnr')}>Flight Number</th>
-                    <th onClick={() => sortFlights(flights, 'apname')}>Airport Name</th>
-                    <th onClick={() => sortFlights(flights, 'sched')}>Time</th>
-                    {(direction==='Departures') ? <th onClick={() => sortFlights(flights, 'gate')}>Gate</th> : null}
-                    <th onClick={() => sortFlights(flights, 'status')}>Status</th>
-                    <th onClick={() => sortFlights(flights, 'terminal')}>Terminal</th>
+                <tr onClick={(e) => sortFlights(flights, e.target.title)}>
+                    <th title="fnr">Flight Number</th>
+                    <th title="apname">Airport Name</th>
+                    <th title="sched">Time</th>
+                    {(direction==='Departures') ? <th title="gate">Gate</th> : null}
+                    <th title="status">Status</th>
+                    <th title="terminal">Terminal</th>
                 </tr>
             </thead>
             <tbody>

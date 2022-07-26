@@ -12,7 +12,7 @@ import FlightsTable from './components/FlightTable';
 4. design the FlightTable component (pass array of objects) +
 5. implement Row component to represent single flight (take object of flight as prop) +/-
 6. in Table map through table and append Row for every flight +
-7. sort func (take field value to sort by) return new array of sorted obj
+7. sort func (take field value to sort by) return new array of sorted obj +
 8. sort table of objects: handle click for table header specifying the sort option
 9. investigate media query
 */
