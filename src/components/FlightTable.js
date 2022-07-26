@@ -33,24 +33,27 @@ const FlightsTable = ({flights, direction}) => {
         <table>
             <thead>
                 <tr onClick={(e) => sortFlights(flights, e.target.title)}>
-                    <th title="fnr">Flight Number</th>
-                    <th title="apname">Airport Name</th>
-                    <th title="sched">Time</th>
-                    {(direction==='Departures') ? <th title="gate">Gate</th> : null}
-                    <th title="status">Status</th>
-                    <th title="terminal">Terminal</th>
+                    <th className="fnrApname" title="fnr">Flight Number,<br/>Airport Name</th>
+                    <th className="fnr" title="fnr">Flight Number</th>
+                    <th className="apname" title="apname">Airport Name</th>
+                    <th className="sched" title="sched">Time</th>
+                    {(direction==='Departures') ? <th className="gate" title="gate">Gate</th> : null}
+                    <th className="status" title="status">Status</th>
+                    <th className="terminal" title="terminal">Terminal</th>
+                    <th className="term" title="terminal">Term.</th>
                 </tr>
             </thead>
             <tbody>
                 {flights.map((flightInfo, i) => {
                     return (
                     <tr key={i}>
-                        <td>{flightInfo.fnr}</td>
-                        <td>{flightInfo.apname}</td>
-                        <td>{readableDate(flightInfo.sched)}</td>
-                        {(direction==='Departures') ? <td>{flightInfo.gate}</td> : null}
-                        <td>{flightInfo.status.toLowerCase()}</td>
-                        <td>{flightInfo.terminal}</td>
+                        <td className="fnrApname">{flightInfo.fnr}<br/>{flightInfo.apname}</td>
+                        <td className="fnr">{flightInfo.fnr}</td>
+                        <td className="apname">{flightInfo.apname}</td>
+                        <td className="sched">{readableDate(flightInfo.sched)}</td>
+                        {(direction==='Departures') ? <td className="gate">{flightInfo.gate}</td> : null}
+                        <td className="status">{flightInfo.status.toLowerCase()}</td>
+                        <td className="terminal">{flightInfo.terminal}</td>
                     </tr>
                     )
                 })}

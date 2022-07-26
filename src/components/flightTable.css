@@ -1,12 +1,39 @@
 table, td, th{
     border: 0.05rem solid #F2E7DC;
-  }
+}
 
-  table {
-    margin: 1rem 0;
+table {
+    margin: 2rem 1rem;
     border-collapse: collapse;
-  }
+}
 
-  tr, td, th {
-    padding: 0.5rem 1rem;
-  }
+tr, td, th {
+    padding: 0.25rem 0.5rem;
+}
+
+/*
+laptop: 1024px
+tablet: 768px
+mobile: 425px
+*/
+
+@media screen and (min-width: 769px) {
+    th.term, th.fnrApname, td.fnrApname{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    th.terminal, th.fnrApname, td.fnrApname{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    th.status, td.status, th.terminal,  th.fnr, th.apname, td.fnr, td.apname{
+        display: none;
+    }
+    th.fnrApname, td.fnrApname{
+        display: block;
+    }
+}
