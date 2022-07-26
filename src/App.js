@@ -1,6 +1,10 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import { Button } from 'react-bootstrap';
+
 import data from './data/data.json';
 
 import FlightsTable from './components/FlightTable';
@@ -13,7 +17,7 @@ import FlightsTable from './components/FlightTable';
 5. implement Row component to represent single flight (take object of flight as prop) +/-
 6. in Table map through table and append Row for every flight +
 7. sort func (take field value to sort by) return new array of sorted obj +
-8. sort table of objects: handle click for table header specifying the sort option
+8. sort table of objects: handle click for table header specifying the sort option +
 9. investigate media query
 */
 
@@ -40,11 +44,12 @@ function App() {
 
   return (
     <React.Fragment>
-        <div>
-          <div className='wrapper'>
+        <div className='wrapper'>
+          <div className='headerWrapper'>
             <h1 className='header'>{direction}</h1>
-            <button onClick={changeDirection}>{direction === 'Arrivals' ? 'Departures' : 'Arrivals'}</button>
+            <Button className='mb-2 ms-2' variant="secondary"  onClick={changeDirection}>{direction === 'Arrivals' ? 'Departures' : 'Arrivals'}</Button>
           </div>
+
           <div className='flightsTable'>
             <FlightsTable flights={direction === 'Arrivals' ? arrivals : departures} direction={direction} />
           </div>

@@ -1,8 +1,16 @@
 .wrapper {
   width: 100%;
+  height: 100vh;
+  background-color: #202022;
+  color: #F2E7DC;
+}
+
+.headerWrapper {
+  width: 100%;
+  height: 20%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .flightsTable {
@@ -10,18 +18,12 @@
   height: 80%;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .header {
   text-justify: center;
 }
 
-table, td, th{
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-
-tr, td, th {
-  margin: 0 auto;
+.btn{
+	box-shadow: none !important
 }
